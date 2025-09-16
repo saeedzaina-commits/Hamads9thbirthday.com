@@ -1,0 +1,1741 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Emirates Soccer Star - The Next Ronaldo</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #FF6B6B 0%, #4ECDC4 25%, #45B7D1 50%, #96CEB4 75%, #FFEAA7 100%);
+            background-size: 400% 400%;
+            animation: gradientShift 8s ease infinite;
+            color: #333;
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+        
+        @keyframes gradientShift {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+        
+        .header {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            padding: 1rem 0;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+        
+        .nav {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 2rem;
+        }
+        
+        .logo {
+            font-size: 2.5rem;
+            font-weight: bold;
+            background: linear-gradient(45deg, #FF6B6B, #4ECDC4);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+        }
+        
+        .nav-links a {
+            text-decoration: none;
+            color: #333;
+            font-weight: 600;
+            transition: all 0.3s;
+            padding: 0.5rem 1rem;
+            border-radius: 25px;
+        }
+        
+        .nav-links a:hover {
+            background: linear-gradient(45deg, #FF6B6B, #4ECDC4);
+            color: white;
+            transform: translateY(-2px);
+        }
+        
+        .translate-btn {
+            background: linear-gradient(45deg, #FF6B6B, #4ECDC4);
+            color: white;
+            border: none;
+            padding: 1rem 2rem;
+            border-radius: 25px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s;
+            font-size: 1.2rem;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+            animation: buttonPulse 2s ease-in-out infinite;
+        }
+        
+        @keyframes buttonPulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+        }
+        
+        .translate-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        }
+        
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+        
+        .hero {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(15px);
+            border-radius: 25px;
+            padding: 4rem;
+            margin-bottom: 3rem;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.1);
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: linear-gradient(45deg, transparent, rgba(255,255,255,0.1), transparent);
+            animation: shine 3s infinite;
+        }
+        
+        @keyframes shine {
+            0% { transform: translateX(-100%) translateY(-100%) rotate(45deg); }
+            100% { transform: translateX(100%) translateY(100%) rotate(45deg); }
+        }
+        
+        .hero h1 {
+            font-size: 4rem;
+            background: linear-gradient(45deg, #FF6B6B, #4ECDC4, #45B7D1);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 1rem;
+            position: relative;
+            z-index: 2;
+        }
+        
+        .hero-subtitle {
+            font-size: 1.5rem;
+            color: #666;
+            margin-bottom: 2rem;
+            position: relative;
+            z-index: 2;
+        }
+        
+        .player-showcase {
+            display: grid;
+            grid-template-columns: 1fr 2fr;
+            gap: 3rem;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(15px);
+            padding: 3rem;
+            border-radius: 25px;
+            margin: 3rem 0;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.1);
+        }
+        
+        .chibi-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .chibi-character {
+            width: 250px;
+            height: 300px;
+            position: relative;
+            animation: bounce 2s ease-in-out infinite;
+        }
+        
+        @keyframes bounce {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+        }
+        
+        .player-info {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+        
+        .player-name {
+            font-size: 3rem;
+            font-weight: bold;
+            background: linear-gradient(45deg, #FF6B6B, #4ECDC4);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 1rem;
+        }
+        
+        .player-details {
+            font-size: 1.3rem;
+            color: #666;
+            margin-bottom: 2rem;
+        }
+        
+        .emirates-pride {
+            background: linear-gradient(45deg, #FF0000, #00FF00, #000000, #FFFFFF);
+            color: white;
+            padding: 2rem;
+            border-radius: 20px;
+            text-align: center;
+            margin: 2rem 0;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .emirates-pride::before {
+            content: '🇦🇪';
+            position: absolute;
+            font-size: 8rem;
+            opacity: 0.1;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+        
+        .emirates-pride h2 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            position: relative;
+            z-index: 2;
+        }
+        
+        .emirates-pride p {
+            font-size: 1.2rem;
+            position: relative;
+            z-index: 2;
+        }
+        
+        .article {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(15px);
+            padding: 4rem;
+            border-radius: 25px;
+            margin: 3rem 0;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.1);
+        }
+        
+        .article h2 {
+            color: #FF6B6B;
+            font-size: 2.5rem;
+            margin-bottom: 2rem;
+            position: relative;
+        }
+        
+        .article h2::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 0;
+            width: 100px;
+            height: 4px;
+            background: linear-gradient(45deg, #FF6B6B, #4ECDC4);
+            border-radius: 2px;
+        }
+        
+        .article p {
+            margin-bottom: 2rem;
+            font-size: 1.2rem;
+            text-align: justify;
+            line-height: 1.8;
+        }
+        
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin: 3rem 0;
+        }
+        
+        .stat-card {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 2rem;
+            border-radius: 20px;
+            text-align: center;
+            transform: translateY(0);
+            transition: all 0.3s ease;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+        }
+        
+        .stat-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.3);
+        }
+        
+        .stat-number {
+            font-size: 3rem;
+            font-weight: bold;
+            margin-bottom: 0.5rem;
+        }
+        
+        .stat-label {
+            font-size: 1.1rem;
+            opacity: 0.9;
+        }
+        
+        .game-section {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(15px);
+            padding: 4rem;
+            border-radius: 25px;
+            margin: 3rem 0;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.1);
+        }
+        
+        .game-title {
+            color: #FF6B6B;
+            font-size: 3rem;
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+        
+        .game-container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .soccer-field {
+            background: linear-gradient(45deg, #4CAF50, #45a049);
+            width: 100%;
+            height: 500px;
+            margin: 0 auto;
+            border-radius: 15px;
+            position: relative;
+            border: 4px solid #fff;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+        }
+        
+        .field-lines {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+        }
+        
+        .center-line {
+            position: absolute;
+            top: 0;
+            left: 50%;
+            width: 2px;
+            height: 100%;
+            background: white;
+            transform: translateX(-50%);
+        }
+        
+        .center-circle {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 120px;
+            height: 120px;
+            border: 3px solid #fff;
+            border-radius: 50%;
+        }
+        
+        .goal {
+            position: absolute;
+            width: 100px;
+            height: 60px;
+            border: 3px solid #fff;
+            background: rgba(255,255,255,0.1);
+        }
+        
+        .goal-left {
+            left: -3px;
+            top: 50%;
+            transform: translateY(-50%);
+            border-left: none;
+        }
+        
+        .goal-right {
+            right: -3px;
+            top: 50%;
+            transform: translateY(-50%);
+            border-right: none;
+        }
+        
+        .ball {
+            position: absolute;
+            width: 40px;
+            height: 40px;
+            background: radial-gradient(circle at 30% 30%, #fff, #ddd);
+            border-radius: 50%;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            box-shadow: 0 4px 15px rgba(0,0,0,0.4);
+            z-index: 10;
+        }
+        
+        .ball::before {
+            content: '⚽';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-size: 30px;
+        }
+        
+        .ball:hover {
+            transform: translate(-50%, -50%) scale(1.3);
+            box-shadow: 0 6px 20px rgba(0,0,0,0.5);
+        }
+        
+        .ball.kicked {
+            animation: ballKick 0.8s ease-out;
+        }
+        
+        @keyframes ballKick {
+            0% { transform: translate(-50%, -50%) scale(1); }
+            25% { transform: translate(-50%, -50%) scale(1.5) rotate(90deg); }
+            50% { transform: translate(-50%, -50%) scale(1.2) rotate(180deg); }
+            75% { transform: translate(-50%, -50%) scale(1.3) rotate(270deg); }
+            100% { transform: translate(-50%, -50%) scale(1) rotate(360deg); }
+        }
+        
+        .game-controls {
+            text-align: center;
+            margin-top: 3rem;
+        }
+        
+        .game-btn {
+            background: linear-gradient(45deg, #FF6B6B, #4ECDC4);
+            color: white;
+            border: none;
+            padding: 1.2rem 2.5rem;
+            font-size: 1.2rem;
+            border-radius: 30px;
+            cursor: pointer;
+            margin: 0 1rem;
+            transition: all 0.3s;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        }
+        
+        .game-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.3);
+        }
+        
+        .score-display {
+            font-size: 2rem;
+            font-weight: bold;
+            color: #FF6B6B;
+            margin: 2rem 0;
+            text-align: center;
+        }
+        
+        .birthday-celebration {
+            background: linear-gradient(45deg, #FF6B6B, #4ECDC4, #45B7D1, #96CEB4);
+            background-size: 400% 400%;
+            animation: gradientShift 3s ease infinite;
+            color: white;
+            padding: 3rem;
+            border-radius: 25px;
+            text-align: center;
+            margin: 3rem 0;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.2);
+        }
+        
+        .birthday-celebration h2 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+        
+        .confetti {
+            position: fixed;
+            width: 10px;
+            height: 10px;
+            background: #FF6B6B;
+            animation: confetti-fall 3s linear infinite;
+            z-index: 1000;
+        }
+        
+        .trophies-section {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(15px);
+            padding: 4rem;
+            border-radius: 25px;
+            margin: 3rem 0;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.1);
+        }
+        
+        .trophies-section h2 {
+            color: #FF6B6B;
+            font-size: 3rem;
+            text-align: center;
+            margin-bottom: 3rem;
+            background: linear-gradient(45deg, #FF6B6B, #4ECDC4);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .trophies-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+        
+        .trophy-card {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 2.5rem;
+            border-radius: 20px;
+            text-align: center;
+            transform: translateY(0);
+            transition: all 0.3s ease;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+        }
+        
+        .trophy-card:hover {
+            transform: translateY(-10px) scale(1.05);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.3);
+        }
+        
+        .trophy-icon {
+            font-size: 4rem;
+            margin-bottom: 1rem;
+            animation: trophyFloat 3s ease-in-out infinite;
+        }
+        
+        @keyframes trophyFloat {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+        }
+        
+        .trophy-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            font-weight: bold;
+        }
+        
+        .trophy-card p {
+            font-size: 1.1rem;
+            opacity: 0.9;
+        }
+        
+        .fun-fact-section {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 3rem;
+            border-radius: 25px;
+            margin: 3rem 0;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.2);
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .fun-fact-section::before {
+            content: '🎮';
+            position: absolute;
+            font-size: 10rem;
+            opacity: 0.1;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            animation: gameRotate 10s linear infinite;
+        }
+        
+        @keyframes gameRotate {
+            0% { transform: translate(-50%, -50%) rotate(0deg); }
+            100% { transform: translate(-50%, -50%) rotate(360deg); }
+        }
+        
+        .fun-fact-section h2 {
+            font-size: 2.5rem;
+            margin-bottom: 2rem;
+            position: relative;
+            z-index: 2;
+        }
+        
+        .fun-fact-card {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            padding: 2rem;
+            border-radius: 20px;
+            position: relative;
+            z-index: 2;
+        }
+        
+        .fact-icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            animation: bounce 2s ease-in-out infinite;
+        }
+        
+        .fun-fact-card p {
+            font-size: 1.3rem;
+            line-height: 1.6;
+        }
+        
+        .leaderboard-section {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(15px);
+            padding: 4rem;
+            border-radius: 25px;
+            margin: 3rem 0;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.1);
+        }
+        
+        .leaderboard-section h2 {
+            color: #FF6B6B;
+            font-size: 3rem;
+            text-align: center;
+            margin-bottom: 2rem;
+            background: linear-gradient(45deg, #FF6B6B, #4ECDC4);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .leaderboard-container {
+            max-width: 800px;
+            margin: 0 auto;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+        }
+        
+        .leaderboard-header {
+            display: grid;
+            grid-template-columns: 80px 1fr 120px 100px;
+            gap: 1rem;
+            padding: 1.5rem;
+            background: rgba(0,0,0,0.2);
+            color: white;
+            font-weight: bold;
+            font-size: 1.1rem;
+        }
+        
+        .leaderboard-entry {
+            display: grid;
+            grid-template-columns: 80px 1fr 120px 100px;
+            gap: 1rem;
+            padding: 1.5rem;
+            color: white;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+            transition: all 0.3s ease;
+            animation: slideIn 0.5s ease-out;
+        }
+        
+        .leaderboard-entry:hover {
+            background: rgba(255,255,255,0.1);
+            transform: translateX(5px);
+        }
+        
+        .leaderboard-entry:last-child {
+            border-bottom: none;
+        }
+        
+        .rank {
+            font-size: 1.5rem;
+            font-weight: bold;
+            text-align: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .rank.first { color: #FFD700; }
+        .rank.second { color: #C0C0C0; }
+        .rank.third { color: #CD7F32; }
+        
+        .player-name {
+            font-size: 1.2rem;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+        }
+        
+        .player-score {
+            font-size: 1.3rem;
+            font-weight: bold;
+            text-align: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .trophy {
+            font-size: 2rem;
+            text-align: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .add-score-form {
+            max-width: 500px;
+            margin: 3rem auto;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 3rem;
+            border-radius: 20px;
+            text-align: center;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+        }
+        
+        .add-score-form h3 {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+        }
+        
+        .add-score-form p {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+        }
+        
+        .add-score-form input {
+            width: 100%;
+            padding: 1rem;
+            font-size: 1.2rem;
+            border: none;
+            border-radius: 10px;
+            margin-bottom: 2rem;
+            text-align: center;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        }
+        
+        .form-buttons {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+        }
+        
+        @keyframes slideIn {
+            0% {
+                transform: translateX(-100%);
+                opacity: 0;
+            }
+            100% {
+                transform: translateX(0);
+                opacity: 1;
+            }
+        }
+        
+        .goal-popup {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%) scale(0);
+            background: linear-gradient(45deg, #FF6B6B, #4ECDC4, #45B7D1);
+            color: white;
+            font-size: 6rem;
+            font-weight: bold;
+            padding: 2rem 4rem;
+            border-radius: 30px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.5);
+            z-index: 10000;
+            text-shadow: 3px 3px 6px rgba(0,0,0,0.5);
+            border: 5px solid white;
+            animation: goalPopup 3s ease-out forwards;
+            pointer-events: none;
+        }
+        
+        @keyframes goalPopup {
+            0% { 
+                transform: translate(-50%, -50%) scale(0) rotate(-180deg);
+                opacity: 0;
+            }
+            20% { 
+                transform: translate(-50%, -50%) scale(1.2) rotate(0deg);
+                opacity: 1;
+            }
+            80% { 
+                transform: translate(-50%, -50%) scale(1) rotate(0deg);
+                opacity: 1;
+            }
+            100% { 
+                transform: translate(-50%, -50%) scale(0.8) rotate(0deg);
+                opacity: 0;
+            }
+        }
+        
+        @keyframes confetti-fall {
+            0% {
+                transform: translateY(-100vh) rotate(0deg);
+                opacity: 1;
+            }
+            100% {
+                transform: translateY(100vh) rotate(720deg);
+                opacity: 0;
+            }
+        }
+        
+        .special-gift-section {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(15px);
+            padding: 4rem;
+            border-radius: 25px;
+            margin: 3rem 0;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.1);
+            text-align: center;
+        }
+        
+        .gift-container {
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        
+        .gift-box {
+            background: linear-gradient(135deg, #FF6B6B, #4ECDC4);
+            padding: 3rem;
+            border-radius: 25px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .gift-box:hover {
+            transform: translateY(-10px) scale(1.05);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.3);
+        }
+        
+        .gift-box::before {
+            content: '✨';
+            position: absolute;
+            font-size: 2rem;
+            animation: sparkle 2s ease-in-out infinite;
+            top: 20px;
+            left: 20px;
+        }
+        
+        .gift-box::after {
+            content: '✨';
+            position: absolute;
+            font-size: 2rem;
+            animation: sparkle 2s ease-in-out infinite 1s;
+            bottom: 20px;
+            right: 20px;
+        }
+        
+        @keyframes sparkle {
+            0%, 100% { opacity: 0.3; transform: scale(1); }
+            50% { opacity: 1; transform: scale(1.2); }
+        }
+        
+        .gift-bow {
+            font-size: 4rem;
+            margin-bottom: 1rem;
+            animation: bounce 2s ease-in-out infinite;
+        }
+        
+        .gift-body {
+            font-size: 6rem;
+            margin-bottom: 1rem;
+            animation: giftPulse 3s ease-in-out infinite;
+        }
+        
+        @keyframes giftPulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.1); }
+        }
+        
+        .gift-label {
+            font-size: 2rem;
+            font-weight: bold;
+            color: white;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+            background: rgba(255,255,255,0.2);
+            padding: 1rem 2rem;
+            border-radius: 15px;
+            margin-top: 1rem;
+            animation: labelGlow 2s ease-in-out infinite alternate;
+        }
+        
+        @keyframes labelGlow {
+            0% { box-shadow: 0 0 10px rgba(255,255,255,0.3); }
+            100% { box-shadow: 0 0 20px rgba(255,255,255,0.6); }
+        }
+        
+        .gift-opened {
+            animation: giftReveal 1s ease-out;
+        }
+        
+        @keyframes giftReveal {
+            0% { 
+                opacity: 0; 
+                transform: scale(0.5) rotate(-10deg); 
+            }
+            100% { 
+                opacity: 1; 
+                transform: scale(1) rotate(0deg); 
+            }
+        }
+        
+        .trophy-celebration {
+            background: linear-gradient(45deg, #FFD700, #FFA500, #FF6B6B, #4ECDC4);
+            background-size: 400% 400%;
+            animation: gradientShift 3s ease infinite;
+            padding: 4rem;
+            border-radius: 25px;
+            color: white;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .trophy-celebration::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><text y="50" font-size="20">🎉</text></svg>') repeat;
+            opacity: 0.1;
+            animation: confettiFloat 10s linear infinite;
+        }
+        
+        @keyframes confettiFloat {
+            0% { transform: translateY(0px); }
+            100% { transform: translateY(-100px); }
+        }
+        
+        .trophy-display {
+            position: relative;
+            z-index: 2;
+        }
+        
+        .main-trophy {
+            font-size: 8rem;
+            margin-bottom: 2rem;
+            animation: trophyFloat 3s ease-in-out infinite;
+            text-shadow: 3px 3px 6px rgba(0,0,0,0.3);
+        }
+        
+        .trophy-text h2 {
+            font-size: 3rem;
+            margin-bottom: 2rem;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+        
+        .award-titles {
+            margin: 2rem 0;
+        }
+        
+        .award {
+            font-size: 1.5rem;
+            font-weight: bold;
+            margin: 1rem 0;
+            padding: 1rem 2rem;
+            background: rgba(255,255,255,0.2);
+            border-radius: 15px;
+            backdrop-filter: blur(10px);
+            animation: awardSlide 0.8s ease-out;
+            animation-fill-mode: both;
+        }
+        
+        .award:nth-child(1) { animation-delay: 0.2s; }
+        .award:nth-child(2) { animation-delay: 0.4s; }
+        .award:nth-child(3) { animation-delay: 0.6s; }
+        
+        @keyframes awardSlide {
+            0% { 
+                opacity: 0; 
+                transform: translateX(-100px); 
+            }
+            100% { 
+                opacity: 1; 
+                transform: translateX(0); 
+            }
+        }
+        
+        .special-message {
+            font-size: 1.3rem;
+            margin-top: 2rem;
+            padding: 1.5rem;
+            background: rgba(255,255,255,0.2);
+            border-radius: 15px;
+            backdrop-filter: blur(10px);
+            animation: messageGlow 2s ease-in-out infinite alternate;
+        }
+        
+        @keyframes messageGlow {
+            0% { box-shadow: 0 0 15px rgba(255,255,255,0.3); }
+            100% { box-shadow: 0 0 25px rgba(255,255,255,0.6); }
+        }
+        
+        @media (max-width: 768px) {
+            .hero h1 { font-size: 2.5rem; }
+            .player-showcase { grid-template-columns: 1fr; text-align: center; }
+            .chibi-character { width: 200px; height: 240px; }
+            .player-name { font-size: 2rem; }
+            .nav-links { 
+                display: flex;
+                flex-direction: column;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                right: 0;
+                background: rgba(255, 255, 255, 0.95);
+                backdrop-filter: blur(10px);
+                padding: 1rem;
+                box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+                transform: translateY(-100%);
+                opacity: 0;
+                pointer-events: none;
+                transition: all 0.3s ease;
+            }
+            .nav-links.active {
+                transform: translateY(0);
+                opacity: 1;
+                pointer-events: all;
+            }
+            .translate-btn {
+                position: fixed;
+                top: 20px;
+                right: 20px;
+                z-index: 1001;
+                font-size: 1.1rem;
+                padding: 0.8rem 1.5rem;
+                box-shadow: 0 8px 20px rgba(0,0,0,0.4);
+                animation: buttonPulse 2s ease-in-out infinite;
+            }
+            .container { padding: 1rem; }
+            .hero, .article, .game-section { padding: 2rem; }
+            .soccer-field { height: 400px; }
+            .leaderboard-header, .leaderboard-entry { 
+                grid-template-columns: 60px 1fr 80px 60px; 
+                font-size: 0.9rem;
+            }
+            .gift-body { font-size: 4rem; }
+            .gift-label { font-size: 1.5rem; }
+            .trophy-text h2 { font-size: 2rem; }
+            .main-trophy { font-size: 6rem; }
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <nav class="nav">
+            <div class="logo">🇦🇪 Emirates Soccer Star</div>
+            <ul class="nav-links">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#news">News</a></li>
+                <li><a href="#players">Players</a></li>
+                <li><a href="#games">Games</a></li>
+                <li><a href="#emirates">UAE Pride</a></li>
+                <li><button class="translate-btn" onclick="toggleLanguage()" id="translateBtn">🇦🇪 العربية</button></li>
+            </ul>
+        </nav>
+    </header>
+
+    <div class="container">
+        <div class="hero">
+            <div style="display: flex; justify-content: center; align-items: center; gap: 2rem; margin-bottom: 2rem; flex-wrap: wrap;">
+                <h1 style="margin: 0;">🌟 THE NEXT RONALDO IS HERE! 🌟</h1>
+                <button class="translate-btn" onclick="toggleLanguage()" id="translateBtn" style="position: static; animation: buttonPulse 2s ease-in-out infinite;">🇦🇪 العربية</button>
+            </div>
+            <p class="hero-subtitle">Exclusive: Emirati Rising Star Takes the Soccer World by Storm</p>
+        </div>
+
+        <div class="player-showcase">
+            <div class="player-photo">
+                <img src="https://i.imghippo.com/files/IGZ4973z.jpeg" alt="Hamad Saeed Aljneibi - The Next Ronaldo" onerror="this.src=''; this.alt='Photo failed to load'; this.style.display='none';" style="width: 100%; height: 400px; object-fit: cover; border-radius: 20px; box-shadow: 0 10px 30px rgba(0,0,0,0.3);">
+            </div>
+            <div class="player-info">
+                <div class="player-name">HAMAD SAEED ALJNEIBI</div>
+                <div class="player-details">
+                    🏆 Team Batiyeh<br>
+                    🇦🇪 Proud Emirati • Age 9 • Position: Forward<br>
+                    ⚽ Jersey #10 • Captain & Top Scorer
+                </div>
+            </div>
+        </div>
+
+        <div class="emirates-pride">
+            <h2>🇦🇪 PRIDE OF THE UAE 🇦🇪</h2>
+            <p>Representing the spirit and excellence of the United Arab Emirates on the soccer field. Hamad embodies the values of determination, respect, and sporting excellence that make the UAE proud!</p>
+        </div>
+
+        <div class="birthday-celebration">
+            <h2>🎉 HAPPY 9TH BIRTHDAY HAMAD! 🎂</h2>
+            <p>The future Emirati soccer legend celebrates another year of incredible achievements and unstoppable talent!</p>
+        </div>
+
+        <div class="trophies-section">
+            <h2>🏆 TROPHIES & ACHIEVEMENTS 🏆</h2>
+            <div class="trophies-grid">
+                <div class="trophy-card">
+                    <div class="trophy-icon">🥇</div>
+                    <h3>Team Batiyeh Top Scorer</h3>
+                    <p>Leading goal scorer for the season</p>
+                </div>
+                <div class="trophy-card">
+                    <div class="trophy-icon">👑</div>
+                    <h3>Team Captain</h3>
+                    <p>Youngest captain in team history</p>
+                </div>
+                <div class="trophy-card">
+                    <div class="trophy-icon">⚽</div>
+                    <h3>Hat-trick Master</h3>
+                    <p>15 hat-tricks in one season</p>
+                </div>
+                <div class="trophy-card">
+                    <div class="trophy-icon">🌟</div>
+                    <h3>Player of the Match</h3>
+                    <p>Awarded 12 times this season</p>
+                </div>
+                <div class="trophy-card">
+                    <div class="trophy-icon">🎯</div>
+                    <h3>Perfect Penalty Record</h3>
+                    <p>100% success rate from the spot</p>
+                </div>
+                <div class="trophy-card">
+                    <div class="trophy-icon">🇦🇪</div>
+                    <h3>UAE Youth Ambassador</h3>
+                    <p>Representing Emirati excellence</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="fun-fact-section">
+            <h2>🎮 FUN FACT ALERT! 🎮</h2>
+            <div class="fun-fact-card">
+                <div class="fact-icon">🎯</div>
+                <p>Did you know every Thursday he grinds at Fortnite? This future soccer legend is also a gaming champion! When he's not scoring goals on the field, he's getting Victory Royales in the virtual world! 🏆</p>
+            </div>
+        </div>
+
+        <div class="article">
+            <h2>🏆 The Making of an Emirati Legend</h2>
+            <p>In the heart of the United Arab Emirates, where dreams soar as high as the Burj Khalifa, a young soccer prodigy is writing his own chapter in sporting history. Meet <strong>Hamad Saeed Aljneibi</strong>, the 9-year-old Emirati sensation who has taken the local soccer scene by storm and is already being hailed as "The Next Ronaldo" by coaches, fans, and soccer experts across the region.</p>
+
+            <p>After making waves in the Talentball League, Hamad has now joined the prestigious Team Batiyeh, where his extraordinary skills have elevated the entire squad to new heights. This young Emirati star combines traditional UAE values of hard work and dedication with modern soccer techniques that would make even professional players envious.</p>
+
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <div class="stat-number">52</div>
+                    <div class="stat-label">Goals This Season</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">28</div>
+                    <div class="stat-label">Assists</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">97%</div>
+                    <div class="stat-label">Pass Accuracy</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">15</div>
+                    <div class="stat-label">Hat-tricks</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">100%</div>
+                    <div class="stat-label">Team Spirit</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">🇦🇪</div>
+                    <div class="stat-label">Emirati Pride</div>
+                </div>
+            </div>
+
+            <h2>🎯 What Makes This Emirati Star Special?</h2>
+            <p>According to his coach at Team Batiyeh, Hamad possesses that rare combination of technical brilliance, tactical intelligence, and the unwavering determination that characterizes the best of Emirati athletes. "In my 25 years of coaching," says Coach Mohammed, "I've never witnessed a player with such natural instinct for the game, combined with the humility and respect that reflects the true spirit of the UAE."</p>
+
+            <p>But it's not just his goal-scoring prowess that sets this young Emirati apart. His leadership qualities shine through as team captain of Batiyeh, where he leads by example, always encouraging his teammates and showing the kind of sportsmanship that makes the UAE proud. His ability to create opportunities for others while maintaining his own exceptional performance demonstrates maturity far beyond his 9 years.</p>
+
+            <h2>🌟 The Road to Glory</h2>
+            <p>As Hamad celebrates his 9th birthday, the soccer community in the UAE and beyond is watching with great anticipation. His journey from the Talentball League to Team Batiyeh represents just the beginning of what promises to be an extraordinary career. With the backing of his proud Emirati community and his incredible natural talent, Hamad is perfectly positioned to become the UAE's next international soccer superstar.</p>
+
+            <p>The young star's dedication to both his sport and his heritage makes him a role model for aspiring athletes across the Emirates. As he continues to break records and capture hearts with his incredible performances, one thing is certain: the UAE has found its next soccer legend. Happy 9th Birthday, Hamad – may this year bring even more goals, victories, and moments that make the entire nation proud!</p>
+        </div>
+
+        <div class="game-section">
+            <h2 class="game-title">🎮 Score Goals with Hamad!</h2>
+            <p style="text-align: center; margin-bottom: 2rem; font-size: 1.2rem;">Click the soccer ball to score amazing goals! Can you match Hamad's incredible scoring record?</p>
+            
+            <div class="game-container">
+                <div class="soccer-field">
+                    <div class="field-lines">
+                        <div class="center-line"></div>
+                        <div class="center-circle"></div>
+                        <div class="goal goal-left"></div>
+                        <div class="goal goal-right"></div>
+                    </div>
+                    <div class="ball" id="ball"></div>
+                </div>
+                
+                <div class="score-display">
+                    Goals Scored: <span id="score">0</span> ⚽
+                    <br>
+                    <span id="achievement" style="font-size: 1rem; color: #4ECDC4;"></span>
+                </div>
+                
+                <div class="game-controls">
+                    <button class="game-btn" onclick="resetGame()">🔄 New Game</button>
+                    <button class="game-btn" onclick="superCelebration()">🎉 UAE Celebration!</button>
+                    <button class="game-btn" onclick="saveScore()">💾 Save High Score</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="leaderboard-section">
+            <h2>🏆 FAMILY LEADERBOARD 🏆</h2>
+            <p style="text-align: center; margin-bottom: 2rem; font-size: 1.2rem; color: #666;">Who can score the most goals? Family competition starts here!</p>
+            
+            <div class="leaderboard-container">
+                <div class="leaderboard-header">
+                    <div class="rank-col">Rank</div>
+                    <div class="name-col">Family Member</div>
+                    <div class="score-col">High Score</div>
+                    <div class="trophy-col">Trophy</div>
+                </div>
+                <div id="leaderboard-list">
+                    <!-- Leaderboard entries will be added here -->
+                </div>
+            </div>
+            
+            <div class="add-score-form" id="scoreForm" style="display: none;">
+                <h3>🎉 New High Score!</h3>
+                <p>You scored <span id="newScoreDisplay">0</span> goals! Enter your name to join the leaderboard:</p>
+                <input type="text" id="playerName" placeholder="Enter your name..." maxlength="20">
+                <div class="form-buttons">
+                    <button class="game-btn" onclick="addToLeaderboard()">🏆 Add to Leaderboard</button>
+                    <button class="game-btn" onclick="cancelScore()" style="background: #666;">❌ Cancel</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="special-gift-section">
+            <div class="gift-container" id="giftContainer">
+                <div class="gift-box" id="giftBox" onclick="openGift()">
+                    <div class="gift-bow">🎀</div>
+                    <div class="gift-body">🎁</div>
+                    <div class="gift-label">FOR HAMAD ONLY! 🌟</div>
+                </div>
+                
+                <div class="gift-opened" id="giftOpened" style="display: none;">
+                    <div class="trophy-celebration">
+                        <div class="trophy-display">
+                            <div class="main-trophy">🏆</div>
+                            <div class="trophy-text">
+                                <h2>🎉 CONGRATULATIONS HAMAD! 🎉</h2>
+                                <div class="award-titles">
+                                    <div class="award">🏆 BEST BROTHER OF THE YEAR 🏆</div>
+                                    <div class="award">🤝 BEST FRIEND OF THE YEAR 🤝</div>
+                                    <div class="award">⚽ BEST FOOTBALLER OF THE YEAR ⚽</div>
+                                </div>
+                                <p class="special-message">You are amazing in every way! Keep being the incredible person you are! 🌟</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        let score = 0;
+        let gameActive = true;
+        const ball = document.getElementById('ball');
+        const scoreDisplay = document.getElementById('score');
+        const achievementDisplay = document.getElementById('achievement');
+        
+        const achievements = [
+            "First Goal! 🎯",
+            "Double Trouble! ⚽⚽",
+            "Hat-trick Hero! 🎩",
+            "Goal Machine! 🔥",
+            "Fantastic Five! ⭐",
+            "Emirati Excellence! 🇦🇪",
+            "Lucky Seven! 🍀",
+            "Octopus Goals! 🐙",
+            "Nine and Shine! ✨",
+            "Perfect Ten! 👑",
+            "Ronaldo Level! 🐐"
+        ];
+        
+        // Leaderboard functionality
+        let leaderboard = JSON.parse(localStorage.getItem('hamadLeaderboard')) || [];
+        
+        function saveScore() {
+            if (score === 0) {
+                alert('Score some goals first! ⚽');
+                return;
+            }
+            
+            document.getElementById('newScoreDisplay').textContent = score;
+            document.getElementById('scoreForm').style.display = 'block';
+            document.getElementById('playerName').focus();
+        }
+        
+        function addToLeaderboard() {
+            const playerName = document.getElementById('playerName').value.trim();
+            if (!playerName) {
+                alert('Please enter your name! 📝');
+                return;
+            }
+            
+            const newEntry = {
+                name: playerName,
+                score: score,
+                date: new Date().toLocaleDateString()
+            };
+            
+            leaderboard.push(newEntry);
+            leaderboard.sort((a, b) => b.score - a.score);
+            leaderboard = leaderboard.slice(0, 10); // Keep top 10
+            
+            localStorage.setItem('hamadLeaderboard', JSON.stringify(leaderboard));
+            
+            document.getElementById('scoreForm').style.display = 'none';
+            document.getElementById('playerName').value = '';
+            
+            updateLeaderboardDisplay();
+            
+            // Celebration for new high score
+            if (leaderboard[0].name === playerName && leaderboard[0].score === score) {
+                setTimeout(() => {
+                    alert('🏆 NEW FAMILY CHAMPION! 🏆');
+                    superCelebration();
+                }, 500);
+            }
+        }
+        
+        function cancelScore() {
+            document.getElementById('scoreForm').style.display = 'none';
+            document.getElementById('playerName').value = '';
+        }
+        
+        function updateLeaderboardDisplay() {
+            const leaderboardList = document.getElementById('leaderboard-list');
+            leaderboardList.innerHTML = '';
+            
+            if (leaderboard.length === 0) {
+                leaderboardList.innerHTML = '<div style="text-align: center; padding: 2rem; color: white; font-size: 1.2rem;">No scores yet! Be the first family member to score! ⚽</div>';
+                return;
+            }
+            
+            leaderboard.forEach((entry, index) => {
+                const entryDiv = document.createElement('div');
+                entryDiv.className = 'leaderboard-entry';
+                
+                let rankClass = '';
+                let trophy = '🏅';
+                if (index === 0) { rankClass = 'first'; trophy = '🥇'; }
+                else if (index === 1) { rankClass = 'second'; trophy = '🥈'; }
+                else if (index === 2) { rankClass = 'third'; trophy = '🥉'; }
+                
+                entryDiv.innerHTML = `
+                    <div class="rank ${rankClass}">#${index + 1}</div>
+                    <div class="player-name">${entry.name}</div>
+                    <div class="player-score">${entry.score} ⚽</div>
+                    <div class="trophy">${trophy}</div>
+                `;
+                
+                leaderboardList.appendChild(entryDiv);
+            });
+        }
+        
+        // Initialize leaderboard on page load
+        updateLeaderboardDisplay();
+        
+        ball.addEventListener('click', function() {
+            if (!gameActive) return;
+            
+            // Add kick animation
+            ball.classList.add('kicked');
+            
+            // Score goal
+            score++;
+            scoreDisplay.textContent = score;
+            
+            // Show achievement
+            if (score <= achievements.length) {
+                achievementDisplay.textContent = achievements[score - 1];
+            } else {
+                achievementDisplay.textContent = `Legendary ${score} Goals! 🌟`;
+            }
+            
+            // Move ball to random position
+            const field = document.querySelector('.soccer-field');
+            const fieldRect = field.getBoundingClientRect();
+            const maxX = fieldRect.width - 40;
+            const maxY = fieldRect.height - 40;
+            
+            const randomX = Math.random() * maxX;
+            const randomY = Math.random() * maxY;
+            
+            setTimeout(() => {
+                ball.style.left = randomX + 'px';
+                ball.style.top = randomY + 'px';
+                ball.classList.remove('kicked');
+            }, 400);
+            
+            // Special celebrations
+            if (score % 5 === 0) {
+                createGoalCelebration();
+            }
+            
+            if (score === 10) {
+                superCelebration();
+            }
+        });
+        
+        function resetGame() {
+            score = 0;
+            scoreDisplay.textContent = score;
+            achievementDisplay.textContent = '';
+            ball.style.left = '50%';
+            ball.style.top = '50%';
+            ball.style.transform = 'translate(-50%, -50%)';
+            ball.classList.remove('kicked');
+            gameActive = true;
+        }
+        
+        function createGoalCelebration() {
+            const field = document.querySelector('.soccer-field');
+            const celebrations = ['⚽', '🎉', '🏆', '⭐', '🔥', '🇦🇪'];
+            
+            for (let i = 0; i < 15; i++) {
+                setTimeout(() => {
+                    const celebration = document.createElement('div');
+                    celebration.innerHTML = celebrations[Math.floor(Math.random() * celebrations.length)];
+                    celebration.style.position = 'absolute';
+                    celebration.style.fontSize = '2rem';
+                    celebration.style.left = Math.random() * 100 + '%';
+                    celebration.style.top = Math.random() * 100 + '%';
+                    celebration.style.animation = 'goalCelebration 2s ease-out forwards';
+                    celebration.style.zIndex = '1000';
+                    celebration.style.pointerEvents = 'none';
+                    
+                    field.appendChild(celebration);
+                    
+                    setTimeout(() => {
+                        if (celebration.parentNode) {
+                            celebration.remove();
+                        }
+                    }, 2000);
+                }, i * 100);
+            }
+        }
+        
+        function superCelebration() {
+            // Create confetti
+            for (let i = 0; i < 50; i++) {
+                setTimeout(() => {
+                    const confetti = document.createElement('div');
+                    confetti.className = 'confetti';
+                    confetti.style.left = Math.random() * 100 + 'vw';
+                    confetti.style.background = ['#FF6B6B', '#4ECDC4', '#45B7D1', '#96CEB4', '#FFEAA7'][Math.floor(Math.random() * 5)];
+                    confetti.style.animationDelay = Math.random() * 2 + 's';
+                    document.body.appendChild(confetti);
+                    
+                    setTimeout(() => {
+                        if (confetti.parentNode) {
+                            confetti.remove();
+                        }
+                    }, 3000);
+                }, i * 50);
+            }
+            
+            // UAE celebration message
+            achievementDisplay.innerHTML = '🇦🇪 UAE CHAMPION! MAKING THE NATION PROUD! 🇦🇪';
+            achievementDisplay.style.fontSize = '1.2rem';
+            achievementDisplay.style.fontWeight = 'bold';
+        }
+        
+        // Add CSS for goal celebration animation
+        const style = document.createElement('style');
+        style.textContent = `
+            @keyframes goalCelebration {
+                0% { 
+                    transform: translateY(0px) scale(0) rotate(0deg); 
+                    opacity: 1; 
+                }
+                50% { 
+                    transform: translateY(-30px) scale(1.5) rotate(180deg); 
+                    opacity: 1; 
+                }
+                100% { 
+                    transform: translateY(-60px) scale(0) rotate(360deg); 
+                    opacity: 0; 
+                }
+            }
+        `;
+        document.head.appendChild(style);
+        
+        // Random goal celebration function
+        function showGoalPopup() {
+            const popup = document.createElement('div');
+            popup.className = 'goal-popup';
+            popup.textContent = 'GOOOAAAL! ⚽';
+            document.body.appendChild(popup);
+            
+            // Create extra confetti for random goals
+            createGoalCelebration();
+            
+            // Remove popup after animation
+            setTimeout(() => {
+                if (popup.parentNode) {
+                    popup.remove();
+                }
+            }, 3000);
+        }
+        
+        // Random goal celebrations every 8-15 seconds
+        function scheduleRandomGoal() {
+            const randomDelay = Math.random() * 7000 + 8000; // 8-15 seconds
+            setTimeout(() => {
+                showGoalPopup();
+                scheduleRandomGoal(); // Schedule next random goal
+            }, randomDelay);
+        }
+        
+        // Start random goal celebrations after initial load
+        setTimeout(() => {
+            scheduleRandomGoal();
+        }, 5000);
+        
+        // Auto-celebration for birthday
+        setTimeout(() => {
+            superCelebration();
+        }, 3000);
+        
+        // Allow Enter key to submit name
+        document.getElementById('playerName').addEventListener('keypress', function(e) {
+            if (e.key === 'Enter') {
+                addToLeaderboard();
+            }
+        });
+        
+        // Language toggle functionality
+        let isArabic = false;
+        
+        const translations = {
+            // Navigation
+            'Home': 'الرئيسية',
+            'News': 'الأخبار',
+            'Players': 'اللاعبون',
+            'Games': 'الألعاب',
+            'UAE Pride': 'فخر الإمارات',
+            
+            // Main content
+            'THE NEXT RONALDO IS HERE!': 'رونالدو القادم هنا!',
+            'Exclusive: Emirati Rising Star Takes the Soccer World by Storm': 'حصري: نجم إماراتي صاعد يأخذ عالم كرة القدم بالعاصفة',
+            'HAMAD SAEED ALJNEIBI': 'حمد سعيد الجنيبي',
+            'Team Batiyeh': 'فريق باطية',
+            'Proud Emirati • Age 9 • Position: Forward': 'إماراتي فخور • العمر 9 • المركز: مهاجم',
+            'Jersey #10 • Captain & Top Scorer': 'القميص رقم 10 • الكابتن والهداف',
+            
+            // Birthday section
+            'HAPPY 9TH BIRTHDAY HAMAD!': 'عيد ميلاد سعيد حمد التاسع!',
+            'The future Emirati soccer legend celebrates another year of incredible achievements and unstoppable talent!': 'أسطورة كرة القدم الإماراتية المستقبلية تحتفل بعام آخر من الإنجازات المذهلة والموهبة التي لا تُقهر!',
+            
+            // Pride section
+            'PRIDE OF THE UAE': 'فخر دولة الإمارات',
+            'Representing the spirit and excellence of the United Arab Emirates on the soccer field. Hamad embodies the values of determination, respect, and sporting excellence that make the UAE proud!': 'يمثل روح وتميز دولة الإمارات العربية المتحدة في ملعب كرة القدم. حمد يجسد قيم العزيمة والاحترام والتميز الرياضي التي تجعل الإمارات فخورة!',
+            
+            // Trophies section
+            'TROPHIES & ACHIEVEMENTS': 'الكؤوس والإنجازات',
+            'Team Batiyeh Top Scorer': 'هداف فريق باطية',
+            'Leading goal scorer for the season': 'الهداف الأول للموسم',
+            'Team Captain': 'كابتن الفريق',
+            'Youngest captain in team history': 'أصغر كابتن في تاريخ الفريق',
+            'Hat-trick Master': 'سيد الهاتريك',
+            '15 hat-tricks in one season': '15 هاتريك في موسم واحد',
+            'Player of the Match': 'لاعب المباراة',
+            'Awarded 12 times this season': 'حصل عليها 12 مرة هذا الموسم',
+            'Perfect Penalty Record': 'سجل مثالي في ركلات الجزاء',
+            '100% success rate from the spot': 'معدل نجاح 100% من النقطة',
+            'UAE Youth Ambassador': 'سفير شباب الإمارات',
+            'Representing Emirati excellence': 'يمثل التميز الإماراتي',
+            
+            // Game section
+            'Score Goals with Hamad!': 'سجل أهداف مع حمد!',
+            'Click the soccer ball to score amazing goals! Can you match Hamad\'s incredible scoring record?': 'اضغط على كرة القدم لتسجيل أهداف مذهلة! هل يمكنك مضاهاة سجل حمد المذهل في التسجيل؟',
+            'Goals Scored:': 'الأهداف المسجلة:',
+            'New Game': 'لعبة جديدة',
+            'UAE Celebration!': 'احتفال إماراتي!',
+            'Save High Score': 'احفظ أعلى نتيجة',
+            
+            // Leaderboard
+            'FAMILY LEADERBOARD': 'لوحة الشرف العائلية',
+            'Who can score the most goals? Family competition starts here!': 'من يستطيع تسجيل أكثر الأهداف؟ المنافسة العائلية تبدأ هنا!',
+            'Rank': 'الترتيب',
+            'Family Member': 'فرد العائلة',
+            'High Score': 'أعلى نتيجة',
+            'Trophy': 'الكأس',
+            'New High Score!': 'رقم قياسي جديد!',
+            'Enter your name...': 'أدخل اسمك...',
+            'Add to Leaderboard': 'أضف إلى لوحة الشرف',
+            'Cancel': 'إلغاء',
+            
+            // Gift section
+            'FOR HAMAD ONLY!': 'لحمد فقط!',
+            'CONGRATULATIONS HAMAD!': 'مبروك حمد!',
+            'BEST BROTHER OF THE YEAR': 'أفضل أخ لهذا العام',
+            'BEST FRIEND OF THE YEAR': 'أفضل صديق لهذا العام',
+            'BEST FOOTBALLER OF THE YEAR': 'أفضل لاعب كرة قدم لهذا العام',
+            'You are amazing in every way! Keep being the incredible person you are!': 'أنت رائع بكل الطرق! استمر في كونك الشخص المذهل الذي أنت عليه!',
+            
+            // Fun fact
+            'FUN FACT ALERT!': 'حقيقة ممتعة!',
+            'Did you know every Thursday he grinds at Fortnite? This future soccer legend is also a gaming champion! When he\'s not scoring goals on the field, he\'s getting Victory Royales in the virtual world!': 'هل تعلم أنه كل يوم خميس يلعب فورتنايت؟ أسطورة كرة القدم المستقبلية هذه هي أيضاً بطل في الألعاب! عندما لا يسجل أهداف في الملعب، فهو يحقق انتصارات في العالم الافتراضي!'
+        };
+        
+        function toggleLanguage() {
+            isArabic = !isArabic;
+            const translateBtn = document.getElementById('translateBtn');
+            
+            if (isArabic) {
+                translateBtn.innerHTML = '🇬🇧 English';
+                translateToArabic();
+                document.body.style.direction = 'rtl';
+                document.body.style.fontFamily = 'Arial, sans-serif';
+            } else {
+                translateBtn.innerHTML = '🇦🇪 العربية';
+                translateToEnglish();
+                document.body.style.direction = 'ltr';
+                document.body.style.fontFamily = "'Segoe UI', Tahoma, Geneva, Verdana, sans-serif";
+            }
+        }
+        
+        function translateToArabic() {
+            // Get all text elements and translate them
+            const elementsToTranslate = document.querySelectorAll('h1, h2, h3, p, a, button, .stat-label, .player-details, .gift-label, .award, .special-message');
+            
+            elementsToTranslate.forEach(element => {
+                const originalText = element.textContent.trim();
+                if (translations[originalText]) {
+                    element.setAttribute('data-original', originalText);
+                    element.textContent = translations[originalText];
+                }
+                
+                // Handle partial matches for complex text
+                let translatedText = originalText;
+                Object.keys(translations).forEach(key => {
+                    if (originalText.includes(key)) {
+                        translatedText = translatedText.replace(key, translations[key]);
+                    }
+                });
+                
+                if (translatedText !== originalText) {
+                    element.setAttribute('data-original', originalText);
+                    element.textContent = translatedText;
+                }
+            });
+            
+            // Special handling for specific elements
+            const heroTitle = document.querySelector('.hero h1');
+            if (heroTitle) {
+                heroTitle.setAttribute('data-original', heroTitle.textContent);
+                heroTitle.innerHTML = '🌟 رونالدو القادم هنا! 🌟';
+            }
+            
+            const playerName = document.querySelector('.player-name');
+            if (playerName) {
+                playerName.setAttribute('data-original', playerName.textContent);
+                playerName.textContent = 'حمد سعيد الجنيبي';
+            }
+        }
+        
+        function translateToEnglish() {
+            // Restore original English text
+            const translatedElements = document.querySelectorAll('[data-original]');
+            translatedElements.forEach(element => {
+                element.textContent = element.getAttribute('data-original');
+                element.removeAttribute('data-original');
+            });
+        }
+        
+        // Gift opening function
+        function openGift() {
+            const giftBox = document.getElementById('giftBox');
+            const giftOpened = document.getElementById('giftOpened');
+            
+            // Hide the gift box
+            giftBox.style.display = 'none';
+            
+            // Show the opened gift with animation
+            giftOpened.style.display = 'block';
+            
+            // Create massive celebration
+            setTimeout(() => {
+                superCelebration();
+            }, 500);
+            
+            // Create extra special confetti for the gift
+            for (let i = 0; i < 100; i++) {
+                setTimeout(() => {
+                    const confetti = document.createElement('div');
+                    confetti.className = 'confetti';
+                    confetti.style.left = Math.random() * 100 + 'vw';
+                    confetti.style.background = ['#FFD700', '#FFA500', '#FF6B6B', '#4ECDC4', '#45B7D1'][Math.floor(Math.random() * 5)];
+                    confetti.style.animationDelay = Math.random() * 3 + 's';
+                    confetti.style.animationDuration = (Math.random() * 2 + 3) + 's';
+                    document.body.appendChild(confetti);
+                    
+                    setTimeout(() => {
+                        if (confetti.parentNode) {
+                            confetti.remove();
+                        }
+                    }, 5000);
+                }, i * 30);
+            }
+            
+            // Show special popup
+            setTimeout(() => {
+                const popup = document.createElement('div');
+                popup.className = 'goal-popup';
+                popup.innerHTML = '🎉 SPECIAL GIFT OPENED! 🎁';
+                popup.style.fontSize = '4rem';
+                document.body.appendChild(popup);
+                
+                setTimeout(() => {
+                    if (popup.parentNode) {
+                        popup.remove();
+                    }
+                }, 3000);
+            }, 1000);
+        }
+    </script>
+<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'97ff1a05c403e70c',t:'MTc1ODAxMjQ3My4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+</html>
